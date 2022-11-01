@@ -1,28 +1,86 @@
+
+//CREATE FOLLOWER
+###
+POST http://localhost:9000/api/follower HTTP/1.1
+Content-Type: application/json
+
+{
+    "follower":"",
+    "followed":""
+}
+
+//CREATE USER
 ###
 POST http://localhost:9000/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Freddy Guette",
-    "age": 21,
-    "email": "fguettema@gmail.com"
+    "name":"Luis Caro",
+    "username":"@flcaro",
+    "age":2,
+    "email": "flcaro@gmail.com"
+
 }
 
+//CREATE TWEET
 ###
-GET http://localhost:9000/api/users HTTP/1.1
-
-###
-GET http://localhost:9000/api/users/635d79c9f41c32569a3cac70 HTTP/1.1
-
-###
-PUT http://localhost:9000/api/users/635d79c9f41c32569a3cac70 HTTP/1.1
+POST http://localhost:9000/api/tweets HTTP/1.1
 Content-Type: application/json
 
 {
-    "name": "Angel Rivera",
-    "age": 65,
-    "email": "ariverae@gmail.com"
+    "author":"63608d2ac68b789bbe19ee05",
+    "body":"soy cachon",
+    "date":"2000/06/21"
+
 }
 
+//GET ALL USERS
 ###
-DELETE  http://localhost:9000/api/users/635d781d302ecf6ee9d84485 HTTP/1.1
+GET  http://localhost:9000/api/users HTTP/1.1
+Content-Type: application/json
+
+//GET ALL USERS
+###
+GET  http://localhost:9000/api/tweets HTTP/1.1
+Content-Type: application/json
+
+//CREATE FOLLOWER
+###
+POST http://localhost:9000/api/followers HTTP/1.1
+Content-Type: application/json
+
+{
+    "follower":"63608cd2c06865b1b45eb959",
+    "followed":"63608d2ac68b789bbe19ee05"
+
+}
+
+//GET FOLLOWERS OR FOLLOWEDS CHANGE FOLLOWEDS FOR FOLLOWERS
+###
+GET  http://localhost:9000/api/followers/63608d2ac68b789bbe19ee05 HTTP/1.1
+Content-Type: application/json
+
+//DELETE FOLLOWED
+###
+DELETE   http://localhost:9000/api/followers/63608d2ac68b789bbe19ee05/63608cd2c06865b1b45eb959 HTTP/1.1
+Content-Type: application/json
+
+
+//CREATE LIKE
+###
+POST http://localhost:9000/api/likes HTTP/1.1
+Content-Type: application/json
+
+{
+    "user":"63608c9bc06865b1b45eb941",
+    "tweet": "63608e2dc68b789bbe19ee14"
+}
+
+//GET LIKES
+###
+GET http://localhost:9000/api/likes/63608d2ac68b789bbe19ee05 HTTP/1.1
+Content-Type: application/json
+
+
+
+

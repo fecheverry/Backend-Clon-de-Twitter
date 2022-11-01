@@ -1,58 +1,52 @@
 const express = require('express')
-const userSchema = require('../models/user')
+const tweetSchema = require('../models/tweet')
 
 const router = express.Router();
 
-//create user
-router.post('/users', (req, res) => {
-    const user = userSchema(req.body)
-    user
+//create tweet
+router.post('/tweets', (req, res) => {
+    const tweet = tweetSchema(req.body)
+    tweet
         .save()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
-//get all users
-router.get('/users', (req, res) => {
-    userSchema
+//get all tweets
+router.get('/tweets', (req, res) => {
+    tweetSchema
         .find()
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
-//get a users
-router.get('/users/:id', (req, res) => {
+//get by author
+router.get('/tweets/:id', (req, res) => {
     const { id } = req.params
-    userSchema
-        .findById(id)
+    tweetSchema
+        .find({ author: id })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
-//update a users
-router.put('/users/:id', (req, res) => {
+//update tweet
+router.put('/tweets/:id', (req, res) => {
     const { id } = req.params
-    const { name, age, email } = req.body
-    userSchema
-        .updateOne({ _id: id }, { $set: { name, age, email } })
+    const { body } = req.body
+    tweetSchema
+        .updateOne({ _id: id }, { $set: { body } })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
 //delete a users
-router.delete('/users/:id', (req, res) => {
+router.delete('/tweets/:id', (req, res) => {
     const { id } = req.params
-    userSchema
+    tweetSchema
         .remove({ _id: id })
         .then((data) => res.json(data))
         .catch((error) => res.json({ message: error }))
 })
 
-
-
-
-
-
 module.exports = router;
-
 
