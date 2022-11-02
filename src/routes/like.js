@@ -22,7 +22,7 @@ router.get('/likes/:id', (req, res) => {
 })
 
 //get followeds
-router.get('/followeds/:id', (req, res) => {
+router.get('/likes/:id', (req, res) => {
     const { id } = req.params
     followerSchema
         .find({ follower: id })
@@ -32,7 +32,7 @@ router.get('/followeds/:id', (req, res) => {
 
 
 //delete followed
-router.delete('/followers/:follower/:followed', (req, res) => {
+router.delete('/likes/:follower/:followed', (req, res) => {
     const { follower } = req.params
     const { followed } = req.params
     followerSchema

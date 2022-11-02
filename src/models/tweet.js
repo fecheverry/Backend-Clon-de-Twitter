@@ -5,10 +5,10 @@ const tweetSchema = mongoose.Schema({
         type: mongoose.Types.ObjectId, ref: 'user', required: true
     },
     body: {
-        type: String, required: false
+        type: String, required: true
     },
     date: {
-        type: Date, required: true
+        type: Date, required: false
     },
 })
 

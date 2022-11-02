@@ -6,6 +6,7 @@ const router = express.Router();
 //create user
 router.post('/users', (req, res) => {
     const user = userSchema(req.body)
+    user.joined = new Date()
     user
         .save()
         .then((data) => res.json(data))

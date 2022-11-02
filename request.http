@@ -1,13 +1,17 @@
-
-//CREATE FOLLOWER
+//CREATE A TWEET
 ###
-POST http://localhost:9000/api/follower HTTP/1.1
+POST http://localhost:9000/api/tweets HTTP/1.1
 Content-Type: application/json
 
 {
-    "follower":"",
-    "followed":""
+    "author":"63620628c34159a9b0a0683a",
+    "body":"eso es monda"
 }
+
+//GET ALL USERS
+###
+GET http://localhost:9000/api/users HTTP/1.1
+Content-Type: application/json
 
 //CREATE USER
 ###
@@ -15,71 +19,17 @@ POST http://localhost:9000/api/users HTTP/1.1
 Content-Type: application/json
 
 {
-    "name":"Luis Caro",
+    "name":"Luis",
     "username":"@flcaro",
     "age":2,
-    "email": "flcaro@gmail.com"
-
+    "email":"flcaro.com"
 }
 
-//CREATE TWEET
 ###
-POST http://localhost:9000/api/tweets HTTP/1.1
-Content-Type: application/json
-
-{
-    "author":"63608d2ac68b789bbe19ee05",
-    "body":"soy cachon",
-    "date":"2000/06/21"
-
-}
-
-//GET ALL USERS
-###
-GET  http://localhost:9000/api/users HTTP/1.1
-Content-Type: application/json
-
-//GET ALL USERS
-###
-GET  http://localhost:9000/api/tweets HTTP/1.1
-Content-Type: application/json
-
-//CREATE FOLLOWER
-###
-POST http://localhost:9000/api/followers HTTP/1.1
-Content-Type: application/json
-
-{
-    "follower":"63608cd2c06865b1b45eb959",
-    "followed":"63608d2ac68b789bbe19ee05"
-
-}
-
-//GET FOLLOWERS OR FOLLOWEDS CHANGE FOLLOWEDS FOR FOLLOWERS
-###
-GET  http://localhost:9000/api/followers/63608d2ac68b789bbe19ee05 HTTP/1.1
-Content-Type: application/json
-
-//DELETE FOLLOWED
-###
-DELETE   http://localhost:9000/api/followers/63608d2ac68b789bbe19ee05/63608cd2c06865b1b45eb959 HTTP/1.1
+DELETE http://localhost:9000/api/tweets/63620804d711dcc515121a61 HTTP/1.1
 Content-Type: application/json
 
 
-//CREATE LIKE
-###
-POST http://localhost:9000/api/likes HTTP/1.1
-Content-Type: application/json
-
-{
-    "user":"63608c9bc06865b1b45eb941",
-    "tweet": "63608e2dc68b789bbe19ee14"
-}
-
-//GET LIKES
-###
-GET http://localhost:9000/api/likes/63608d2ac68b789bbe19ee05 HTTP/1.1
-Content-Type: application/json
 
 
 

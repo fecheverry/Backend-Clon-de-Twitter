@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 
+
 const userSchema = mongoose.Schema({
     name: {
         type: String, required: true
@@ -17,8 +18,17 @@ const userSchema = mongoose.Schema({
         type: Number, required: true
     },
     email: {
-        type: String, required: true
+        type: String, unique: true, required: true
     },
+    joined: {
+        type: Date, required: false
+    },
+    followeds: [
+        { type: String, required: false }],
+    followers: [
+        { type: String, required: false }
+    ],
+    tweets: [{ type: mongoose.Types.ObjectId, ref: 'tweet', required: true }]
 })
 
 module.exports = mongoose.model('user', userSchema)
