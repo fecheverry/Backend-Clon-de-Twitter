@@ -4,14 +4,78 @@ POST http://localhost:9000/api/tweets HTTP/1.1
 Content-Type: application/json
 
 {
-    "author":"63620628c34159a9b0a0683a",
-    "body":"eso es monda"
+    "author":"63634563d67bf46fbf2bcbd0",
+    "body":"NOO"
 }
+
+//CREATE A LIKE
+###
+POST http://localhost:9000/api/likes HTTP/1.1
+Content-Type: application/json
+
+{
+    "user":"636334b6703af542cbb1ffe3",
+    "tweet":"636334d0703af542cbb1ffe6"
+}
+
+
+//GET ALL TWEETS
+###
+GET http://localhost:9000/api/tweets HTTP/1.1
+Content-Type: application/json
+
+//UPDATE A TWEET
+###
+PUT http://localhost:9000/api/tweets/636346f61bc3cfafc6f36644 HTTP/1.1
+Content-Type: application/json
+
+{
+    "body":"TALVEZ"
+}
+
+//DELETE LIKE
+###
+DELETE http://localhost:9000/api/tweets/636346f61bc3cfafc6f36644 HTTP/1.1
+Content-Type: application/json
+
+//GET USERS TWEETS
+###
+GET http://localhost:9000/api/tweets/63634563d67bf46fbf2bcbd0 HTTP/1.1
+Content-Type: application/json
+
 
 //GET ALL USERS
 ###
 GET http://localhost:9000/api/users HTTP/1.1
 Content-Type: application/json
+
+//CREATE FOLLOWER
+###
+POST http://localhost:9000/api/followers HTTP/1.1
+Content-Type: application/json
+
+{
+    "follower":"6363454ed67bf46fbf2bcbce",
+    "followed":"63634563d67bf46fbf2bcbd0"
+}
+
+
+
+//GET USER
+###
+GET http://localhost:9000/api/users/63634570d67bf46fbf2bcbd2 HTTP/1.1
+Content-Type: application/json
+
+//UPDATE USER
+###
+DELETE http://localhost:9000/api/users/63634570d67bf46fbf2bcbd2 HTTP/1.1
+Content-Type: application/json
+
+{
+    "name":"Felipe",
+    "age":23,
+    "email":"asfafa"
+}
 
 //CREATE USER
 ###
@@ -20,9 +84,9 @@ Content-Type: application/json
 
 {
     "name":"Luis",
-    "username":"@flcaro",
+    "username":"@Luis",
     "age":2,
-    "email":"flcaro.com"
+    "email":"Lioscom"
 }
 
 ###

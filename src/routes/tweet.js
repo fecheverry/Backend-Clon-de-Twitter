@@ -20,7 +20,7 @@ router.post('/tweets', async (req, res) => {
 
         const tweets1 = author.tweets
 
-        await user.updateOne({ _id: id_author }, { $push: { tweets: tweets1 } })
+        await user.updateOne({ _id: id_author }, { $addToSet: { tweets: tweets1 } })
 
         tweet
             .save()
@@ -64,7 +64,6 @@ router.put('/tweets/:id', (req, res) => {
 //delete tweet
 router.delete('/tweets/:id', async (req, res) => {
     const { id } = req.params
-    console.log(id.length)
     if (id.length === 24) {
         const tweet = await tweetSchema.findById(id)
         if (tweet != null && tweet != undefined) {

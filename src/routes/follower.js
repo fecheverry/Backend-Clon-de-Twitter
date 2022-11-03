@@ -21,7 +21,7 @@ router.post('/followers', async (req, res) => {
 
                 fr.followeds = fr.followeds.concat(fd.username)
                 fd.followers = fd.followers.concat(fr.username)
-                
+
                 const followeds = fr.followeds
                 const followers = fd.followers
 
@@ -101,6 +101,7 @@ router.delete('/followers/:follower/:followed', async (req, res) => {
 
     idfr = follower1
     idfd = followed1
+    
     if (idfr.length === 24 && idfd.length === 24) {
         const fr = await user.findById(idfr)
         const fd = await user.findById(idfd)
