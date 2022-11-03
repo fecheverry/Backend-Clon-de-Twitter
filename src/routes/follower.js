@@ -72,7 +72,7 @@ router.get('/followersu/:id', async (req, res) => {
 })
 
 //get followeds ID
-router.get('/followers/:id', (req, res) => {
+router.get('/followeds/:id', (req, res) => {
     const { id } = req.params
     followerSchema
         .find({ follower: id }, { _id: 0, followed: 1 })
@@ -81,7 +81,7 @@ router.get('/followers/:id', (req, res) => {
 })
 
 //get followeds USERNAME
-router.get('/followersu/:id', async (req, res) => {
+router.get('/followedsu/:id', async (req, res) => {
     const { id } = req.params
 
     try {

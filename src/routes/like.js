@@ -56,6 +56,15 @@ router.get('/likes/:id', (req, res) => {
         .catch((error) => res.json({ message: error }))
 })
 
+//get likes by user
+router.get('/likesu/:id', (req, res) => {
+    const { id } = req.params
+    likeSchema
+        .find({ user: id }, { _id: 0, user: 0, __v: 0 })
+        .then((data) => res.json(data))
+        .catch((error) => res.json({ message: error }))
+})
+
 
 //delete followed
 router.delete('/likes/:user/:tweet', async (req, res) => {
